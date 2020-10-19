@@ -28,7 +28,7 @@ class PumascanParser(object):
     def get_items(self, tree, test):
         items = {}
         
-        #trim the 7th nanosecond off
+        #trim to 6 digit
         _date_found = datetime.strptime((tree["Timestamp"][:26]).strip() + tree["Timestamp"][-6:].replace(':', ''), '%Y-%m-%dT%H:%M:%S.%f%z')
         
         if 'Rules' in tree:
