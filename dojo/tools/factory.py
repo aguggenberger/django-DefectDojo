@@ -90,6 +90,7 @@ from dojo.tools.risk_recon.parser import RiskReconParser
 from dojo.tools.drheader.parser import DrHeaderJSONParser
 from dojo.tools.checkov.parser import CheckovParser
 from dojo.tools.kubebench.parser import KubeBenchParser
+from dojo.tools.pumascan.parser import PumascanParser
 
 __author__ = 'Jay Paz'
 
@@ -288,6 +289,8 @@ def import_parser_factory(file, test, active, verified, scan_type=None):
         parser = CheckovParser(file, test)
     elif scan_type == 'kube-bench Scan':
         parser = KubeBenchParser(file, test)
+    elif scan_type == 'Pumascan':
+        parser = PumascanParser(file, test)        
     else:
         raise ValueError('Unknown Test Type')
 
